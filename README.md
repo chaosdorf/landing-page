@@ -1,3 +1,3 @@
-# Entropia landing page
+# chaosdorf landing page
 
-The live site is available here: https://entropia.de
+The live site is available here: https://chaosdorf.de
