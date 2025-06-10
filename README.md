@@ -1,3 +1,3 @@
 # chaosdorf landing page
 
-The live site is available here: https://chaosdorf.de
+The live site will be available here: https://chaosdorf.de
