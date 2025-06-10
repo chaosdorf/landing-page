@@ -5,24 +5,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const clubStatusMarker = document.querySelector('.club-status');
 
   function setClubStatus(data) {
-    if (data.isOpen) {
+    if (data.state.open) {
       clubStatusMarker.classList.remove(CLOSED_CLASS);
       clubStatusMarker.classList.add(OPENED_CLASS);
       clubStatusMarker.innerHTML = 'geöffnet';
-    }
-    else {
+    } else {
       clubStatusMarker.classList.remove(OPENED_CLASS);
       clubStatusMarker.classList.add(CLOSED_CLASS);
       clubStatusMarker.innerHTML = 'geschlossen';
     }
 
-    const lastChangeDateTimeString = (new Date(data.lastChange).toLocaleString('de-DE'));
-
-    clubStatusMarker.setAttribute('title', 'letzte Änderung: ' + lastChangeDateTimeString);
+    const lastUpdateDateTimeString = new Date().toLocaleString('de-DE');
+    clubStatusMarker.setAttribute('title', 'letztes Update: ' + lastUpdateDateTimeString);
   }
 
   function updateClubStatus() {
-    fetch('api/entropia-club-status-json-api.php')
+    fetch('https://chaosdorf.de/space_api.json')
       .then((response) => response.json())
       .then((data) => setClubStatus(data));
   }
